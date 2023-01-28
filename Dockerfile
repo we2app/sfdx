@@ -4,7 +4,7 @@ FROM we2app/base
 RUN apt-get update && \
     apt-get -y install openjdk-11-jdk-headless && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Node 14
 RUN apt-get update && apt-get install -y curl gnupg2 lsb-release && \
