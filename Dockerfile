@@ -2,11 +2,9 @@ FROM we2app/base
 
 RUN apt-get update && \
     apt-get -y install openjdk-11-jdk-headless && \
-    apt-get install curl && \
-    # install nodejs
+    apt-get install curl && \  
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && \
     source ~/.profile && \
-    # source ~/.bashrc && \
     nvm install 14.0.0 && \
     npm install -g yarn && \
     yarn global add sfdx-cli && \
@@ -17,3 +15,4 @@ RUN apt-get update && \
     echo $JAVA_HOME && \
     sfdx --version && \
     node -v
+
