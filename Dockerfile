@@ -22,8 +22,9 @@ RUN apt-get update && apt-get install -y curl gnupg2 lsb-release && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Salesforce CLI
-# RUN apt-get update && \
-#     yarn global add sfdx-cli && \
-#     sfdx --version && \
-#     apt-get clean && \
-#     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && \
+    # yarn global add sfdx-cli && \
+    npm install sfdx-cli --global && \
+    sfdx --version && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
