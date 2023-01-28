@@ -28,3 +28,11 @@ RUN apt-get update && \
     sfdx --version && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Testing All Installed Versions
+RUN java -version && \
+    javac -version && \
+    node -v && \
+    npm -v && \
+    yarn -v && \
+    sfdx --version
