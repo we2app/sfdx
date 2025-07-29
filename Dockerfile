@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y curl && \
 
 # Install Salesforce CLI new @salesforce/cli
 RUN apt-get update && \
+    . "$HOME/.nvm/nvm.sh" && \
     # yarn global add sfdx-cli && \
     npm install @salesforce/cli --global && \
     sf -v 
@@ -33,7 +34,8 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Testing All Installed Versions
-RUN java -version && \
+RUN . "$HOME/.nvm/nvm.sh" && \
+    java -version && \
     javac -version && \
     node -v && \
     npm -v && \
