@@ -17,18 +17,19 @@ RUN apt-get update && apt-get install -y curl && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash && \
     . "$HOME/.nvm/nvm.sh" && \
     nvm install 22 && \
+    . "$HOME/.nvm/nvm.sh" && \
     node -v && \
     nvm current && \
-    npm -v && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    npm -v 
 
 # Install Salesforce CLI new @salesforce/cli
 RUN apt-get update && \
     # yarn global add sfdx-cli && \
     npm install @salesforce/cli --global && \
-    sf -v && \
-    apt-get clean && \
+    sf -v 
+
+# Consolidate cleanup commands
+RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Testing All Installed Versions
